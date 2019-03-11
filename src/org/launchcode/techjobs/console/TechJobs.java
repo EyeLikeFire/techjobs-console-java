@@ -1,9 +1,9 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-
+//import java.util.ArrayList;
+//import java.util.HashMap;
+//import java.util.Scanner;
+import java.util.*;
 /**
  * Created by LaunchCode
  */
@@ -61,7 +61,11 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
+                    //TODO: implement search All feature....
+                    //System.out.println("Search all fields not yet implemented.");
+                    //printJobs(JobData.findByValue(searchField, searchTerm));
+                    printJobs(JobData.findByValue(searchField, searchTerm));
+
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -110,7 +114,21 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        /*
+        //TODO:
+        I need a loop to loop through each job,
+        + an inner loop to loop through each bullet point in the job
+         */
 
-        System.out.println("printJobs is not implemented yet");
+        for(int i = 0; i < someJobs.size(); i++){
+            //loop through each job.
+            for (String j : someJobs.get(i).keySet()) {
+                //loop through each property:
+                System.out.println(j + " : " + someJobs.get(i).get(j));
+            }
+           //Divider line:
+            System.out.println("**************");
+        }
+
     }
 }
